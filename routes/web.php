@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('', [MainController::class, 'index'])->name('homepage');
+
+
+
+Route::view('/sidebar','front.layouts.inc.sidebar')->name('sidebar');
+Route::view('/header','front.layouts.inc.header')->name('header');
+Route::view('/page_content','front.layouts.inc.page_content')->name('page_content');
+Route::view('/slider','front.layouts.inc.slider')->name('slider');
+Route::view('/head','front.layouts.inc.head')->name('head');
+Route::view('/footer','front.layouts.inc.footer')->name('footer');
+Route::view('/hide_header','front.layouts.inc.hide_header')->name('hide_header');
